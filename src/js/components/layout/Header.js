@@ -4,9 +4,10 @@ import Nav from "./Nav";
 export default class Header extends React.Component {
 
 	render(){
+		const {location} = this.props;
 		return (
 			<header>
-				<Nav />
+				<Nav location={location}/>
 			</header>
 			
 		)

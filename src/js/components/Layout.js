@@ -6,12 +6,11 @@ import {Link} from "react-router"
 
 export default class Layout extends React.Component {
 	render(){
+		const {location} = this.props;
 		return (
 			<div class="Layout">
-				<Header/>
+				<Header location={location}/>
 				<div class="container">
-					<Link to="archives"><button class="btn btn-info">Archives</button></Link>
-					<Link to="settings" class="btn btn-info">Settings</Link>
 					{this.props.children}
 				</div>
 				<Footer />

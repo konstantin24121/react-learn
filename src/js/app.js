@@ -7,6 +7,7 @@ import Layout from './components/Layout';
 import Main from './pages/Main';
 import Archives from './pages/Archives';
 import Settings from './pages/Settings';
+import Todos from './pages/Todos';
 
 const app = document.getElementById('app');
 
@@ -14,8 +15,9 @@ ReactDOM.render(
 	<Router hostory={hashHistory}>
 		<Route path="/" component={Layout}>
 			<IndexRoute components={Main}></IndexRoute>
-			<Route path="archives/:article" component={Archives}></Route>
+			<Route path="archives(/:article)" component={Archives}></Route>
 			<Route path="settings" component={Settings}></Route>
+			<Route path="todos" component={Todos}></Route>
 		</Route>
 	</Router>
 , app)
