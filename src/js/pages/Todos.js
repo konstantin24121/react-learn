@@ -1,4 +1,5 @@
 import React from 'react';
+import ReactDOM from "react-dom";
 import Todo from './components/Todo';
 import TodoStore from '../store/TodoStore';
 import * as TodoAction from '../actions/TodoActions';
@@ -9,8 +10,7 @@ export default class Todos extends React.Component {
 		super(props);
 		this.getTodos = this.getTodos.bind(this);
 		this.state = {
-			todos: TodoStore.getAll(),
-			newTask: 'Test'
+			todos: TodoStore.getAll()
 		};
 	}
 
@@ -29,13 +29,8 @@ export default class Todos extends React.Component {
 	}
 
 	createTodo(){
-		TodoAction.createTodo(this.state.newTask);
-		this.setState({newTask: null});
-	}
-
-	newTask(e){
-		let newTask = e.target.value;
-		this.setState({newTask});
+		let _todo = ReactDOM.findDOMNode(this.refs.newTodo).value;
+		TodoAction.createTodo(_todo);
 	}
 
 	render() {
@@ -51,7 +46,7 @@ export default class Todos extends React.Component {
 				<ul className='list-unstyled'>{TodoComponents}</ul>
 				<div className="row">
 					<div className="form-group col-xs-3">
-						<input type="text" className="form-control" onChange={this.newTask.bind(this)}/>
+						<input type="text" className="form-control" ref="newTodo" />
 						<button className="btn btn-info" onClick={this.createTodo.bind(this)}>Create</button>
 					</div>
 				</div>
