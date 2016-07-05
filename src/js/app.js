@@ -20,4 +20,4 @@ ReactDOM.render(
 			<Route path="todos" component={Todos}></Route>
 		</Route>
 	</Router>
-, app)
+, app);

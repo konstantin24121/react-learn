@@ -5,6 +5,7 @@ export default class Main extends React.Component {
 		return (
 			<div>
 			</div>
-		)
+		);
 	}
 }
+

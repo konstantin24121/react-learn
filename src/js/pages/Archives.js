@@ -1,7 +1,14 @@
 import React from "react";
 import Article from "./components/Article";
-
 export default class Archives extends React.Component {
+	static propTypes = {
+		params: React.PropTypes.object.isRequired
+	};
+
+	constructor(props) {
+		super(props);
+	}
+
 	render(){
 		const Articles = [
 			'Some title'
@@ -13,6 +20,6 @@ export default class Archives extends React.Component {
 				<h2>{this.props.params.article}</h2>
 				<div className="row">{Articles}</div>
 			</div>
-		)
+		);
 	}
 }
